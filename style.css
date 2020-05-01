@@ -1,0 +1,12 @@
+.col-lg-12{
+    background-color: antiquewhite;
+}
+
+.col-lg-8{
+    background-color: aqua;
+}
+
+.col-lg-3{
+    background-color: coral;
+    left: 8%;
+}

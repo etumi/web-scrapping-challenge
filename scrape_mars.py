@@ -28,7 +28,7 @@ def scrape():
     soup = BeautifulSoup(html, 'html.parser')
 
     grid = soup.find('ul', class_='item_list')
-    articles = grid.find_all('li', class_='slide')
+    article = grid.find('li', class_='slide')
 
     news_title = article.find('div', class_='content_title').text
     news_p = article.find('div', class_='article_teaser_body').text
@@ -49,7 +49,8 @@ def scrape():
     html = browser.html
     soup = BeautifulSoup(html, 'html.parser')
 
-    image_relative_path = soup.find('img', class_='fancybox-image')['src']
+    image_relative_path = soup.find('img', class_='fancybox-image')
+    image_relative_path = image_relative_path['src']
     featured_image_url = 'https://www.jpl.nasa.gov/' + image_relative_path
 
     ## Get latest weather from Twitter page
@@ -82,3 +83,13 @@ def scrape():
 
     ## Get Hemisphere images
     #---------------------------------------------
+
+    ##Put all collected data in a dictionary
+
+    data_entry = {}
+
+    data_entry['news_title'] = news_title
+    data_entry['news_p'] = news_p
+    data_entry['featured_image'] = featured_image_url
+    data_entry['mars_weather'] = mars_weather
+    data_entry['mars_fact_table'] = mars_fact_table
