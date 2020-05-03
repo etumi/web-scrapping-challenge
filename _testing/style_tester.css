@@ -1,0 +1,41 @@
+.row{
+    margin-bottom: 10px;
+}
+.weather{
+    border: 1px solid grey;
+    background-color: hotpink;
+    padding: 20px ;
+}
+.col-lg-12{
+    background-color: antiquewhite;
+}
+
+.col-lg-8{
+    background-color: aqua;
+}
+
+.col-lg-4{
+    background-color: coral;
+    margin-top: 2%;
+}
+
+#mars_hemispheres{
+    text-align: center;
+    background-color: indianred;
+
+}
+
+/* .gallery{
+    display: grid;
+    grid-template-columns: 100px 100px;
+    grid-template-columns: auto auto;
+    grid-gap: 10px;
+}
+
+.gallary .hem_img_section{
+    border: 1px solid grey;
+}
+
+figcaption{
+    text-align: left;
+} */

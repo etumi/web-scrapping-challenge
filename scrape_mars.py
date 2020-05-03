@@ -92,7 +92,13 @@ def scrape_info():
     html = browser.html
     table = pd.read_html(html)
     table_df = pd.DataFrame(table[0])
-    mars_fact_table = table_df.to_html()
+    table_df = table_df.rename(columns = {0: 'Description', 1: 'Value'})
+    table_df = table_df.set_index('Description')
+    table_df.index.name=None
+
+    mars_fact_table = table_df.to_html(header=False)
+    mars_fact_table = mars_fact_table.replace('\n', '')
+
 
     #---------------------------------------------
     ## Get Hemisphere images
@@ -124,6 +130,8 @@ def scrape_info():
             
     #cylcle through each hemisphere page and save image url
     for hemisphere in hemispheres:
+        
+        time.sleep(2)
         
         hemisphere_info = {}
         
@@ -160,5 +168,6 @@ def scrape_info():
     data_entry['featured_image'] = featured_image_url
     data_entry['mars_weather'] = mars_weather
     data_entry['mars_fact_table'] = mars_fact_table
+    data_entry['hemisphere_image_urls'] = hemisphere_image_urls
 
     return data_entry

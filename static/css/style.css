@@ -1,0 +1,28 @@
+.container-fluid{
+    background-color: lightgray;
+}
+
+.row{
+    margin-bottom: 10px;
+}
+.weather{
+    border: 1px solid grey;
+    padding: 20px ;
+}
+
+.col-lg-4{
+    /* background-color: coral; */
+    margin-top: 2%;
+    padding-right: 15px;
+    padding-left: 60px;
+}
+
+#mars_hemispheres{
+    text-align: center;
+    /* background-color: indianred; */
+}
+
+h4{
+    text-align: left;
+}
+
