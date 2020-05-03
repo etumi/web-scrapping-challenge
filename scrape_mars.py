@@ -12,7 +12,7 @@ def _init_browser():
     executable_path = {'executable_path': '/usr/local/bin/chromedriver'}
     return Browser('chrome', **executable_path, headless=False)
 
-def scrape():
+def scrape_info():
 
     browser = _init_browser()
 
@@ -48,15 +48,9 @@ def scrape():
     html = browser.html
     soup = BeautifulSoup(html, 'html.parser')
 
-    browser.click_link_by_partial_text('FULL IMAGE')
-    time.sleep(2)
-
-    html = browser.html
-    soup = BeautifulSoup(html, 'html.parser')
-
     #open featured image
     browser.click_link_by_partial_text('FULL IMAGE')
-    #browser.links.find_by_partial_text('FULL IMAGE')
+
     time.sleep(2)
 
     html = browser.html
@@ -94,12 +88,11 @@ def scrape():
     browser.visit(url)
     time.sleep(2)
 
-    #Scrape Page
+    #scrape page using pandas
     html = browser.html
-    soup = BeautifulSoup(html, 'html.parser')
-
-    mars_fact_table = soup.find('table', class_="tablepress tablepress-id-p-mars")
-    mars_fact_table = pd.read_html(str(mars_fact_table))
+    table = pd.read_html(html)
+    table_df = pd.DataFrame(table[0])
+    mars_fact_table = table_df.to_html()
 
     #---------------------------------------------
     ## Get Hemisphere images
@@ -167,3 +160,5 @@ def scrape():
     data_entry['featured_image'] = featured_image_url
     data_entry['mars_weather'] = mars_weather
     data_entry['mars_fact_table'] = mars_fact_table
+
+    return data_entry
