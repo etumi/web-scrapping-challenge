@@ -5,6 +5,11 @@
 .row{
     margin-bottom: 10px;
 }
+
+.featured_image{
+    text-align: center;
+}
+
 .weather{
     border: 1px solid grey;
     padding: 20px ;
@@ -25,4 +30,8 @@
 h4{
     text-align: left;
 }
+
+/* h2{
+    text-align: left;
+} */
 

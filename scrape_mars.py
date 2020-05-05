@@ -61,7 +61,6 @@ def scrape_info():
 
     #src has relative path only combine with website url
     featured_image_url = 'https://www.jpl.nasa.gov' + image_relative_path
-    image_relative_path = soup.find('img', class_='fancybox-image')
 
     #---------------------------------------------
     ## Get latest weather from Twitter page
